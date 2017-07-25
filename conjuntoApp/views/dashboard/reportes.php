@@ -15,6 +15,10 @@
 				   <h1>Reportes</h1>
 
 				   <a href="../assets/reporteAptos.php"> <button  class="btn btn-primary">Reporte Apartamentos </button></a>
+				   <br>
+				   <br>
+
+				   <a href="../assets/reporteParking.php"> <button  class="btn btn-primary">Reporte Parqueaderos </button></a>
 				  
 				  
 			 </div>

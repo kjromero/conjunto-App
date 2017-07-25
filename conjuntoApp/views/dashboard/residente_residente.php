@@ -14,7 +14,9 @@
 	 	
 	 </div>		
 			 <div class="col-md-10" style="padding-top: 60px;">
-				   <h1>Listado de. Usuarios</h1>
+				   <h1>Listado de Residente</h1>
+
+				   <h3>Aqui podras consultar tu informacion y verificar tu estado.</h3>
 
 				   <table class="table">
 				   	<thead>

@@ -27,8 +27,7 @@ class UsuarioControlador
 
     }
 
-    public static function registrar($nombre, $email, $usuario, $password, $privilegio)
-    {
+    public static function registrar($nombre, $email, $usuario, $password, $privilegio){
        
         $obj_usuario = 
         [
@@ -40,6 +39,11 @@ class UsuarioControlador
         ];
 
         return UsuarioDao::registrar($obj_usuario);
+    }
+
+    public static function uploadImage($data){
+        
+        return UsuarioDao::uploadImage($data);
     }
 
 }

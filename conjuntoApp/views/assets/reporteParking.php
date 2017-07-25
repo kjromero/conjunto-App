@@ -11,13 +11,13 @@ class PDF extends FPDF
 function Header()
 {
 	// Logo
-	$this->Image('img/logo_s.png',1,1,33);
+	$this->Image('img/logo_s.png',1,2,33);
 	// Arial bold 15
 	$this->SetFont('Arial','B',15);
 	// Movernos a la derecha
 	$this->Cell(80);
 	// Título
-	$this->Cell(50,10,'Apartamentos',1,0,'C');
+	$this->Cell(50,10,'Parkings',1,0,'C');
 	// Salto de línea
 	$this->Ln(20);
 }
@@ -30,21 +30,26 @@ function Footer()
 	// Arial italic 8
 	$this->SetFont('Arial','I',8);
 	// Número de página
-	$this->Cell(0,10,'Page '.$this->PageNo().'/{nb}',0,0,'C');
+	$this->Cell(0,10,'Conjunto App '.$this->PageNo().'/{nb}',0,0,'C');
 }
 }
 
-// Creación del objeto de la clase heredada
 $pdf = new PDF();
 $pdf->AliasNbPages();
 $pdf->AddPage();
 $pdf->SetFont('Times','',12);
 
-foreach ( Usuario::getAllResidentes()  as $key => $row) {
+foreach ( Usuario::getAllAptos()  as $key => $row) {
 
+	$varl = Usuario::getResidenteIdApto($row['idApto']);
+	$nombreResidente;
 
-	$pdf->Cell(10,5,'El de Apartamento ' .$row['idApto']." se encuentra ".$res =($row['estado'] == 0) ?  " Al dia":  " En Mora" ,0,1);
-	//  echo "<option value=".$row['idApto'].">".$row['numApto']."</option>";
+	foreach ($varl as $key2 => $value) {
+		$nombreResidente = $value['nombre'];
+	}
+
+	$pdf->Cell(20,15,'El parquadero Numero ' .$row['idParking']." esta asociado al apartamento Numero ".$row['numApto']. " que pertenece al residente ".$nombreResidente  ,0,1);
+	//  echo "<option value=".$row['idApto'].;">".$row['numApto']."</option>";
  }
 
 // for($i=1;$i<=40;$i++)

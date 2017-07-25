@@ -60,9 +60,13 @@ class Residente
 
             $query = "INSERT INTO `residente`( `nombre`, `numero_apto`, `vehiculo`,`idApto`, `estado`) VALUES (:nombre,:numero_apto,:vehiculo,:idApto,:estado)";
 
+            $query2 = "INSERT INTO  `usuarios`(`nombre`, `usuario`, `email`, `password`, `privilegio`) VALUES (:nombre,:nombre,:nombre,'123456',2)";
+
             self::getConexion();
 
             $resultado = self::$cnx->prepare($query);
+            $resultado2 = self::$cnx->prepare($query2);
+            $resultado2->bindParam(":nombre", $usuario['nombre']);
 
             $resultado->bindParam(":nombre", $usuario['nombre']);
             $resultado->bindParam(":numero_apto", $usuario['numero_apto']);
@@ -70,8 +74,8 @@ class Residente
             $resultado->bindParam(":idApto", $usuario['idApto']);
             $resultado->bindParam(":estado", $usuario['estado']);
 
-
             ($resultado->execute()) ? $response = true : $response = false;
+            $resultado2->execute();
 
             return $response;
 
@@ -148,10 +152,36 @@ class Residente
 		return $response;
 	}
 
+
+	public static function getResidenteIdApto($id){
+
+		try{
+			$res = "SELECT `nombre` FROM `residente` WHERE idApto = :id";
+
+			self::getConexion();
+
+			$response = self::$cnx->prepare($res);
+
+			$response->bindParam(":id", $id);
+
+
+			$response->execute();
+			//print_r($response);
+
+			return $response;
+
+		}catch (PDOException $e){
+
+            $response  = ["status" => "false", "err"=> $e];
+			return $response;
+
+		}
+	}
+
 	public static function getResidenteState($id){
 
 		try{
-			$res = "SELECT `estado` FROM `residente` WHERE id = :id";
+			$res = "SELECT * FROM `residente` WHERE id = :id";
 
 			self::getConexion();
 

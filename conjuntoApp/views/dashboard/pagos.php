@@ -44,6 +44,8 @@
 
 				   	   	  	echo "<td contenteditable='true'> <p>".$row['info']."</p></td>";
 
+				   	   	  	echo "<td contenteditable='true'> <p>".$value['idApto']."</p></td>";
+
 				   	   	  	echo "</tr>";
 				   	   	  
 				   	   	  }

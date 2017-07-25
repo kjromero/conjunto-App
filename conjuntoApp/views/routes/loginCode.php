@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $resultado = array("estado" => "true");
 
         if (UsuarioControlador::login($txtUsuario, $txtPassword)) {
-            $usuario   = UsuarioControlador::getUsuario($txtUsuario, $txtPassword);
+            $usuario = UsuarioControlador::getUsuario($txtUsuario, $txtPassword);
             
             $_SESSION["usuario"] = array(
                 "id"         => $usuario['id'],

@@ -60,6 +60,11 @@ class Usuario
         return $response;
     }
 
+     public static function getResidenteIdApto($id){
+        $response =  Residente::getResidenteIdApto($id);
+        return $response;
+    }
+
 
 	public static function getResidente(){
         $response =  Residente::getResidente();

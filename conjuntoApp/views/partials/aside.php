@@ -25,7 +25,8 @@
             <li class="divider"></li>
             <?php } else if ($_SESSION["usuario"]["privilegio"] == 2){ ?>
             <li><a href="../dashboard/residente_residente.php">Soy Residente</a></li>
-            <li><a href="../dashboard/vehiculo.php">Solicitar Parking</a></li>
+            <li><a href="../dashboard/solicitud.php">Solicitar Parking</a></li>
+            <li><a href="../dashboard/upload.php">Subir comprobante de Pago</a></li>
             <?php } else{ ?>
 
               <li><a href="../dashboard/consultaPlaca.php">Consultar Por Placa</a></li>

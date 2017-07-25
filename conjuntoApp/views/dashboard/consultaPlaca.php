@@ -22,8 +22,7 @@
 			   	   	  }
 	         	 ?>
 				</select>
-
-	         	 <!-- <input type="text" name="apto"  required class="form-control"> -->
+ 	         	 <!-- <input type="text" name="apto"  required class="form-control"> -->
 	         </div>
 	                
 	         <div class="form-group">

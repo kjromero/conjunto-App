@@ -89,9 +89,6 @@ class UsuarioDao extends Conexion
 	 */
     public static function getAllUsers()
     {
-    	
-
-    	
 
     	$query ="SELECT*FROM usuarios";
     	self::getConexion();
@@ -129,5 +126,20 @@ class UsuarioDao extends Conexion
         }
 
         return false;
+    }
+
+    public static function uploadImage($data){
+        $query ="INSERT INTO `imagenes`(`img`) VALUES ('$data')";
+
+        self::getConexion();
+
+        $resultado = self::$cnx->prepare($query);
+
+        if ($resultado->execute()) {
+            return true;
+        }
+
+        return false;
+
     }
 }
