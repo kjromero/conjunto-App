@@ -20,6 +20,56 @@ class Residente
 	    self::$cnx = null;
 	}
 
+	public static function quitarParking($data){
+
+		try{
+
+            $query = "UPDATE `aptos` SET `idParking`= 0 WHERE idApto = :idApto";
+
+            self::getConexion();
+
+            $resultado = self::$cnx->prepare($query);
+
+ 			$resultado->bindParam(":idApto", $data['idApto']);
+
+
+            ($resultado->execute()) ? $response = true : $response = false;
+
+            return $response;
+
+		}catch (PDOException $e){
+
+            $response  = ["status" => "false", "err"=> $e];
+			return $response;
+
+		}
+	}
+
+	public  static function asignarParking($data){
+
+		try{
+
+            $query = "UPDATE `aptos` SET `idParking`= :idParking WHERE idApto = :idApto";
+
+            self::getConexion();
+
+            $resultado = self::$cnx->prepare($query);
+
+ 			$resultado->bindParam(":idApto", $data['idApto']);
+            $resultado->bindParam(":idParking", $data['idParking']);
+
+
+            ($resultado->execute()) ? $response = true : $response = false;
+
+            return $response;
+
+		}catch (PDOException $e){
+
+            $response  = ["status" => "false", "err"=> $e];
+			return $response;
+
+		}
+	}
 
 	public  static function editResidente($usuario)
 	{
@@ -152,6 +202,18 @@ class Residente
 		return $response;
 	}
 
+	public static function getAllParkings(){
+		$res = "SELECT * FROM `parkings`";
+
+		self::getConexion();
+
+		$response = self::$cnx->prepare($res);
+
+		$response->execute();
+
+		return $response;
+	}
+
 
 	public static function getResidenteIdApto($id){
 
@@ -191,7 +253,7 @@ class Residente
 
 
 			$response->execute();
-			print_r($response);
+			// print_r($response);
 
 			return $response;
 

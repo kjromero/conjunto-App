@@ -48,10 +48,30 @@ class Usuario
 
          $response = Residente::editResidente($data);
 
+        return $response;
+    }
+
+    public static function quitarParking($data){
+        $data = [
+            "idApto" => $data["idApto"]
+        ];
+
+        $response = Residente::quitarParking($data);
 
         return $response;
-         
 
+    }
+
+    public static function asignarParking($data){
+         
+         $data = [
+            "idApto" => $data["idApto"],
+            "idParking" => $data['idParking']
+         ];
+
+         $response = Residente::asignarParking($data);
+
+        return $response;
     }
 
     
@@ -68,6 +88,12 @@ class Usuario
 
 	public static function getResidente(){
         $response =  Residente::getResidente();
+        return $response;
+    }
+
+    
+    public static function getAllParkings(){
+        $response =  Residente::getAllParkings();
         return $response;
     }
 

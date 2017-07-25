@@ -22,7 +22,9 @@
 				   			<td> Estado - </td>
 				   			<td> Nuemro de apartamento - </td>
 				   			<td> Parqueadero asignado - </td>
-				   			<td> Info  </td>
+				   			<td> Info  -</td>
+				   			<td> Asignar Parqueadero  -</td>
+				   			<td> Quitar Parqueadero  </td>
 				   			
 				   		</tr>
 
@@ -50,6 +52,13 @@
 				   	   	  	}
 
 				   	   	  	echo "<td contenteditable='true'> <p>".$row['info']."</p></td>";
+
+
+				   // <button class="btn btn-primary glyphicon glyphicon-ok"></button>
+				   // <button class="btn btn-danger glyphicon glyphicon-remove"></button>
+echo "<td>".$res = ($value['estado'] == 0 && $value2['idParking'] == 0) ?"<a href='../dashboard/asignarParking.php?idApto=".$value['idApto'] ."'><button class='btn btn-primary glyphicon glyphicon-ok'></button></a>": "</td>";
+
+echo "<td>".$res = ($value['estado'] != 0 && $value2['idParking'] != 0) ?"<a href='../dashboard/quitarParking.php?idApto=".$value['idApto'] ."&numApto=".$value2['numApto']."'><button class='btn btn-danger glyphicon glyphicon-remove'></button></a>": "</td>";
 
 				   	   	  	// echo "<td contenteditable='true'> <p>".$value['idApto']."</p></td>";
 

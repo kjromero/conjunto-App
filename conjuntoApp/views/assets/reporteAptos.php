@@ -43,7 +43,7 @@ $pdf->SetFont('Times','',12);
 foreach ( Usuario::getAllResidentes()  as $key => $row) {
 
 
-	$pdf->Cell(10,5,'El de Apartamento ' .$row['idApto']." se encuentra ".$res =($row['estado'] == 0) ?  " Al dia":  " En Mora" ,0,1);
+	$pdf->Cell(25,10,'El de Apartamento ' .$row['idApto']." se encuentra ".$res =($row['estado'] == 0) ?  " Al dia":  " En Mora" ,0,1);
 	//  echo "<option value=".$row['idApto'].">".$row['numApto']."</option>";
  }
 

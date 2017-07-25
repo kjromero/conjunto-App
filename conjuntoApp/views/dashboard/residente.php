@@ -74,8 +74,7 @@
 				   	   	  	echo "<td contenteditable='true'> <p>" .$res =($row['estado'] == 0) ?  "Al dia":  "En Mora" . "</p></td>";
 
 
-echo "<td> <a href='../dashboard/editResidente.php?idResidente=".$row['id']."&nameResidente=".$row['nombre']."'><button class='edi
-t' id_edit=".$row['id'].">Editar</button></a></td>";
+echo "<td> <a href='../dashboard/editResidente.php?idResidente=".$row['id']."&nameResidente=".$row['nombre']."'><button class='edit' id_edit=".$row['id'].">Editar</button></a></td>";
 				   	   	  	echo "</tr>";
 				   	   	  
 				   	   	  }
