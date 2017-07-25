@@ -20,7 +20,9 @@
 				   			<td> No Pago -   </td>
 				   			<td> Residente -  </td>
 				   			<td> Estado - </td>
-				   			<td> Info</td>
+				   			<td> Nuemro de apartamento - </td>
+				   			<td> Parqueadero asignado - </td>
+				   			<td> Info  </td>
 				   			
 				   		</tr>
 
@@ -40,11 +42,16 @@
 				   	   	  		// echo "<td contenteditable='true'><p>".$value['estado']."</p></td>";
 				   	   	  	}
 //echo "<td contenteditable='true'><p>".$usr->getCurrentState($row['idResidente'])."</p></td>";
+				   	   	  	$varl2 = $usr->getApto($value['idApto']);
 
+				   	   	  	foreach ($varl2 as $key => $value2) {
+				   	   	  		echo "<td contenteditable='true'><p>".$value2['numApto']."</p></td>";
+				   	   	  		echo "<td contenteditable='true'><p>".$res =($value2['idParking'] == 0) ?  "No tiene": $value2['idParking'] ."</p></td>";
+				   	   	  	}
 
 				   	   	  	echo "<td contenteditable='true'> <p>".$row['info']."</p></td>";
 
-				   	   	  	echo "<td contenteditable='true'> <p>".$value['idApto']."</p></td>";
+				   	   	  	// echo "<td contenteditable='true'> <p>".$value['idApto']."</p></td>";
 
 				   	   	  	echo "</tr>";
 				   	   	  

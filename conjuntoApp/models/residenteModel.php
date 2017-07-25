@@ -228,5 +228,19 @@ class Residente
 
 	}
 
+	public static function getApto($idApto){
+		$query = "SELECT * FROM `aptos` WHERE idApto = :id";
+
+		self::getConexion();
+
+        $resultado = self::$cnx->prepare($query);
+
+        $resultado->bindParam(":id", $idApto);
+
+        $resultado->execute();
+
+        return $resultado;
+	}
+
 }
 

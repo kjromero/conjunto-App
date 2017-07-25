@@ -76,6 +76,11 @@ class Usuario
         return $response;
     }
 
+    public static function getApto($idApto){
+        $response =  Residente::getApto($idApto);
+        return $response;
+    }
+
 
     public static function getAllResidentes()
     {
